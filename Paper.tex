@@ -2,7 +2,6 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage{ngerman}
 \usepackage[hidelinks]{hyperref}
 
 \title{Creating an augmented reality system to support manual non-destructive ultrasonic testing of metal pipes and plates}
@@ -39,6 +38,20 @@ AR
 
 \section{Introduction}
 
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=79mm]{images/US-workspace.jpg}
+        \caption{\label{fig:europipe} Workspace for manual ultrasonic-testing of steel pipeline pipes at Europipe in Mülheim an der Ruhr.}
+    \end{center}
+\end{figure}
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=79mm]{images/CScan.jpg}
+        \caption{\label{fig:cScan} C--Scan with a resolution of 0,1\,mm}
+    \end{center}
+\end{figure}
+
 \section{Related Research}
 \cite{ARPat15}
 \cite{ARClean}
@@ -58,15 +71,60 @@ AR
 \section{Implementation}
 \cite{dorner_virtual_2013}
 
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=79mm]{images/Setup.eps}
+        \caption{\label{fig:Setup} Setup of the described AR-application. \textcolor{red}{Grafik muss noch übersetzt werden.}}
+        % TODO: Grafik übersetzen
+    \end{center}
+\end{figure}
+
 \subsection{Tracking of the ultrasonic probe}
 
-\subsection{Detection of the specimen geometry in worldspace}
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=79mm]{images/probemount.jpg}
+        \caption{\label{fig:probemount} Probemount, that fixes \textit{VIVE--}Tracker to ultrasonic probe.}
+    \end{center}
+\end{figure}
+
+\subsection{Detection of the coordinate system in worldspace}
+The coordinate system of the surface to be measured is detected in two steps: first a point cloud of the surface is created by moving the tracked probe across it.
+In a secound step the used coordinate system is picked by placing the tracked probe at the desired origin, 
 
 \subsection{Vizualisation of the trackingdata}
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=79mm]{images/DrawVsErase.eps}
+        \caption{\label{fig:DrawVsErase} Different methods to mark covered area.}
+    \end{center}
+\end{figure}
 
 \subsection{Continuous and singular logging of position}
 
 \section{Evaluation}
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=79mm]{images/PrecisionMeasurement.jpg}
+        \caption{\label{fig:precisionMeasurement} Setup for the evaluation of the \textit{VIVE}--Precision}
+    \end{center}
+\end{figure}
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=79mm]{images/distancesBoxplot-E.eps}
+        \caption{\label{fig:boxplotE} Difference between measured and theoretical distances to the reference point at the E--Positions.}
+    \end{center}
+\end{figure}
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=79mm]{images/distancesBoxplot-W.eps}
+        \caption{\label{fig:boxplotW} Difference between measured and theoretical distances to the reference point at the W--Positions.}
+    \end{center}
+\end{figure}
 
 \section{Conclusion}
 
