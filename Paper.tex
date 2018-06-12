@@ -4,9 +4,10 @@
 \usepackage[T1]{fontenc}
 \usepackage[hidelinks]{hyperref}
 
-\title{Creating an augmented reality system to support manual non-destructive ultrasonic testing of metal pipes and plates}
+\title{Augmented reality for supporting manual non-destructive ultrasonic testing of metal pipes and plates}
 
-\authors{Robert Deppe, Oliver Nemitz, Jens Herder}
+% \authors{Robert Deppe, Oliver Nemitz, Jens Herder}
+\authors{}
 
 \affiliations{~}
 % TODO: Correct affiliations
@@ -16,8 +17,8 @@ The aim of this paper is to describe the application of augmented reality techno
 The prototype is created with hard– and software, that is usually employed in the gaming industry, and delivers positions for creating c–-scans.
 Using the ZEDmini in combination with the HTC VIVE enables realtime visualisation of the probes path in the HMD, as well as the setting of virtual markers on the specimen.
 As a part of the implementation the downhill–simplex optimization–algorithm is implemented to fit the specimen to a cloud of recorded surfacepoints.
-The accuracy is statistically tested and evaluated with the result, that the VIVE–trackingsystem is accurate up to ca. 1–2 millimeters in well lit conditions.
-This paper is of interest not only for research–institutes of the metal–industry, but also for any areas of work, in which the enhancement with augmented–reality is possible.
+The accuracy is statistically tested and evaluated with the result, that the \textit{VIVE}–trackingsystem is accurate up to ca. 1–-2 millimeters in well set-up conditions.
+This paper is of interest not only for research–-institutes of the metal–-industry, but also for any areas of work, in which the enhancement with augmented–reality is possible.
 }
 
 % Give some keywords
@@ -26,11 +27,10 @@ Nondestructive Testing,
 Ultrasonic,
 Augmented Reality,
 Tracking,
-Stereocamera,
-HTC VIVE,
-ZED--mini,
+Stereo--camera,
+HTC,
+ZED,
 NDT,
-ZfP,
 AR
 }
 
@@ -64,8 +64,6 @@ AR
 \cite{moles_introduction_2004}
 \cite{olympus_Grundlagen}
 
-\textcolor{red}{Soll noch ein Abschnitt zu den AR Grundlagen gemacht werden?}
-
 \section{Description of the AR--application}
 
 \section{Implementation}
@@ -81,7 +79,7 @@ AR
 
 \subsection{Tracking of the ultrasonic probe}
 The ultrasonic probe is tracked with the help of a attachable tracked \textit{VIVE}--Tracker.
-This Tracker is attached to a mount, in which the ultrasonic probe is fixed.
+This Tracker is attached to a mount, in which the ultrasonic probe is fixed (figuere~\ref{}).
 The offset and orientation between the tracker and probe is applied in software by setting the virtual probe as a child transform of the tracker.
 
 \begin{figure}[h!]
@@ -99,7 +97,7 @@ In a second step the used coordinate system is picked by placing the tracked pro
 As the specimen--geometry is already defined, only one more axis is required to define the orthogonal coordinate system.
 this is done by placing the tracked probe on the X--Axis and pressing the setup button.
 
-\subsection{Vizualisation of the trackingdata}
+\subsection{Vizualisation of the tracking--data}
 
 \begin{figure}[h!]
     \begin{center}
