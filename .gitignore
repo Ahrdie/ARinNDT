@@ -20,6 +20,6 @@
 *.synctex(busy)
 *.tmp
 *.tps
-*.pdf
+paper.pdf
 *.icloud
 Formatting.tex
