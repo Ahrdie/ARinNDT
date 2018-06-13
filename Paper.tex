@@ -6,8 +6,8 @@
 
 \title{Augmented reality for supporting manual non-destructive ultrasonic testing of metal pipes and plates}
 
-% \authors{Robert Deppe, Oliver Nemitz, Jens Herder}
-\authors{}
+%\authors{Robert Deppe, Oliver Nemitz, Jens Herder}
+\authors{Anonym}
 
 \affiliations{~}
 % TODO: Correct affiliations
@@ -38,10 +38,14 @@ AR
 
 \section{Introduction}
 
+In the field of nondestructive testing of steel products, the ultrasonic (US) inspection is a frequently used method to assure given safety requirements. For heavy plates and large diameter pipes the manual US testing is often applied as a follow-up inspection. Here, a US probe is moved by hand on the surface of the specimen (cf. Figure \ref{fig:manual_UT}). While moving and possibly rotating the probe the operator monitors the US signal on a screen. Usually, in case of an imperfection in the material, the US signal exhibits a higher amplitude and the position of the imperfection can be marked on the specimen.
+However, the exact position and orientation of the probe are not captured during the manual inspection. Hence, generating an objective report with for example a map of color coded US amplitudes onto probe positions (C-Scan) is not directly possible. Furthermore, there is usually no kind of tracking and visualization of those parts of the specimen surface which have already been inspected and especially no control if inspection gaps occur.
+The aim of our system is therefore to track the position and orientation of the US probe during the inspection and assign them to the corresponding US signals. This tracking is done with standard AR/VR components of an HTC Vive system. Global coordinates of the probe are converted to coordinates in a local coordinate system on the specimen and sent to a UT inspection software which can generate a C-Scan of the inspection. By a ZED mini stereo camera it is possible to view the inspection in AR and to visualize certain virtual elements as the pathes of the already inspected areas.
+
 \begin{figure}[h!]
     \begin{center}
         \includegraphics[width=79mm]{images/US-workspace.jpg}
-        \caption{\label{fig:europipe} Workspace for manual ultrasonic-testing of steel pipeline pipes at Europipe in Mülheim an der Ruhr.}
+        \caption{\label{fig:manual_UT} Manual ultrasonic testing of steel large diameter pipes.}
     \end{center}
 \end{figure}
 
@@ -78,7 +82,7 @@ Attached to the HMD is the \textit{ZEDmini}, a stereo--camera that can be used t
 
 \begin{figure}[h!]
     \begin{center}
-        \includegraphics[width=79mm]{images/Setup.eps}
+        \includegraphics[width=79mm]{images/Setup.pdf}
         \caption{\label{fig:Setup} Setup of the described AR-application. \textcolor{red}{Grafik muss noch übersetzt werden.}}
         % TODO: Grafik übersetzen, ZEDmini hinzufügen
     \end{center}
@@ -109,7 +113,7 @@ this is done by placing the tracked probe on the X--Axis and pressing the setup 
 
 \begin{figure}[h!]
     \begin{center}
-        \includegraphics[width=79mm]{images/DrawVsErase.eps}
+        \includegraphics[width=79mm]{images/DrawVsErase.pdf}
         \caption{\label{fig:DrawVsErase} Different methods to mark covered area.}
     \end{center}
 \end{figure}
@@ -136,14 +140,14 @@ These differences are plottet subject to the tine and type of comb.
 
 \begin{figure}[h!]
     \begin{center}
-        \includegraphics[width=79mm]{images/distancesBoxplot-E.eps}
+        \includegraphics[width=79mm]{images/distancesBoxplot-E.pdf}
         \caption{\label{fig:boxplotE} Difference between measured and theoretical distances to the reference point at the E--Positions.}
     \end{center}
 \end{figure}
 
 \begin{figure}[h!]
     \begin{center}
-        \includegraphics[width=79mm]{images/distancesBoxplot-W.eps}
+        \includegraphics[width=79mm]{images/distancesBoxplot-W.pdf}
         \caption{\label{fig:boxplotW} Difference between measured and theoretical distances to the reference point at the W--Positions.}
     \end{center}
 \end{figure}
