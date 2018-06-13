@@ -6,19 +6,19 @@
 
 \title{Augmented reality for supporting manual non-destructive ultrasonic testing of metal pipes and plates}
 
-% \authors{Robert Deppe, Oliver Nemitz, Jens Herder}
-\authors{}
+%\authors{Robert Deppe, Oliver Nemitz, Jens Herder}
+\authors{~}
 
 \affiliations{~}
 % TODO: Correct affiliations
 
 \abstract{
-The aim of this paper is to describe the application of augmented reality technology in non–destructive testing of products of the metal–industry and a prototype created in the course of a bachelor--thesis.
-The prototype is created with hard– and software, that is usually employed in the gaming industry, and delivers positions for creating c–-scans.
-Using a stereocamera in combination with a HMD enables realtime visualisation of the probes path in the HMD, as well as the setting of virtual markers on the specimen.
-As a part of the implementation the downhill–simplex optimization–algorithm is implemented to fit the specimen to a cloud of recorded surfacepoints.
-The accuracy is statistically tested and evaluated.
-This paper is of interest not only for research–-institutes of the metal–-industry, but also for any areas of work, in which the enhancement with augmented–reality is possible.
+We describe an application of augmented reality technology for non-destructive testing of products in the metal-industry.
+The prototype is created with hard- and software, that is usually employed in the gaming industry, and delivers positions for creating ultrasonic material scans (c-scans).
+Using a stereo camera in combination with an {\sc hmd} enables realtime visualisation of the probes path, as well as the setting of virtual markers on the specimen.
+As a part of the implementation the downhill simplex optimization algorithm is implemented to fit the specimen to a cloud of recorded surface points.
+The accuracy is statistically tested and evaluated with the result, that the tracking system is accurate up to ca. 1-2 millimeters in well set-up conditions.
+This paper is of interest not only for research institutes of the metal-industry, but also for any areas of work, in which the enhancement with augmented reality is possible and a price tracking is necessary.
 }
 
 % Give some keywords
@@ -27,9 +27,8 @@ Nondestructive Testing,
 Ultrasonic,
 Augmented Reality,
 Tracking,
-Stereo--camera,
-HTC,
-ZED,
+Stereo camera,
+head mounted display,
 NDT,
 AR
 }
@@ -38,16 +37,20 @@ AR
 
 \section{Introduction}
 
+In the field of nondestructive testing of steel products, the ultrasonic (US) inspection is a frequently used method to assure given safety requirements. For heavy plates and large diameter pipes the manual US testing is often applied as a follow-up inspection. Here, a US probe is moved by hand on the surface of the specimen (cf. Figure \ref{fig:manual_UT}). While moving and possibly rotating the probe the operator monitors the US signal on a screen. Usually, in case of an imperfection in the material, the US signal exhibits a higher amplitude and the position of the imperfection can be marked on the specimen.
+However, the exact position and orientation of the probe are not captured during the manual inspection. Hence, generating an objective report with for example a map of color coded US amplitudes onto probe positions (C-Scan) is not directly possible. Furthermore, there is usually no kind of tracking and visualization of those parts of the specimen surface which have already been inspected and especially no control if inspection gaps occur.
+The aim of our system is therefore to track the position and orientation of the US probe during the inspection and assign them to the corresponding US signals. This tracking is done with standard AR/VR components of an HTC Vive system. Global coordinates of the probe are converted to coordinates in a local coordinate system on the specimen and sent to a UT inspection software which can generate a C-Scan of the inspection. By a ZED mini stereo camera it is possible to view the inspection in AR and to visualize certain virtual elements as the pathes of the already inspected areas.
+
 \begin{figure}[h!]
     \begin{center}
-        \includegraphics[width=79mm]{images/US-workspace.jpg}
-        \caption{\label{fig:europipe} Workspace for manual ultrasonic-testing of steel pipeline pipes at Europipe in Mülheim an der Ruhr.}
+        \includegraphics[width=79mm]{images/US-workspace}
+        \caption{\label{fig:manual_UT} Manual ultrasonic testing of steel large diameter pipes.}
     \end{center}
 \end{figure}
 
 \begin{figure}[h!]
     \begin{center}
-        \includegraphics[width=79mm]{images/CScan.jpg}
+        \includegraphics[width=79mm]{images/CScan}
         \caption{\label{fig:cScan} C--Scan with a resolution of 0,1\,mm}
     \end{center}
 \end{figure}
@@ -82,7 +85,7 @@ Attached to the HMD is the \textit{ZEDmini}, a stereo--camera that can be used t
 
 \begin{figure}[h!]
     \begin{center}
-        \includegraphics[width=79mm]{images/Setup.eps}
+        \includegraphics[width=79mm]{images/Setup}
         \caption{\label{fig:Setup} Setup of the described AR-application. \textcolor{red}{Grafik muss noch übersetzt werden.}}
         % TODO: Grafik übersetzen, ZEDmini hinzufügen
     \end{center}
@@ -96,7 +99,7 @@ The offset and orientation between the tracker and probe is applied in software 
 \begin{figure}[h!]
   \label{fig:probemount}
     \begin{center}
-        \includegraphics[width=79mm]{images/probemount.jpg}
+        \includegraphics[width=79mm]{images/probemount}
         \caption{\label{fig:probemount} Probemount, that fixes \textit{VIVE--}Tracker to ultrasonic probe.}
     \end{center}
 \end{figure}
@@ -117,7 +120,7 @@ The Path can either be drawn on the surface (DRAW), erased from a pre--colored a
 
 \begin{figure}[h!]
     \begin{center}
-        \includegraphics[width=79mm]{images/DrawVsErase.eps}
+        \includegraphics[width=79mm]{images/DrawVsErase}
         \caption{\label{fig:DrawVsErase} Different methods to mark covered area.}
     \end{center}
 \end{figure}
@@ -136,7 +139,7 @@ Both \textit{VIVE}--Basestations were positioned on opposite corners of the scan
 
 \begin{figure}[h!]
     \begin{center}
-        \includegraphics[width=79mm]{images/PrecisionMeasurement.jpg}
+        \includegraphics[width=79mm]{images/PrecisionMeasurement}
         \caption{\label{fig:precisionMeasurementSetup} Setup for the evaluation of the \textit{VIVE}--Precision. \textcolor{red}{Grafik muss noch übersetzt werden.}}
     \end{center}
 \end{figure}
@@ -150,14 +153,14 @@ These differences are plottet subject to the tine and type of comb.
 
 \begin{figure}[h!]
     \begin{center}
-        \includegraphics[width=79mm]{images/distancesBoxplot-E.eps}
+        \includegraphics[width=79mm]{images/distancesBoxplot-E}
         \caption{\label{fig:boxplotE} Difference between measured and theoretical distances to the reference point at the E--Positions.}
     \end{center}
 \end{figure}
 
 \begin{figure}[h!]
     \begin{center}
-        \includegraphics[width=79mm]{images/distancesBoxplot-W.eps}
+        \includegraphics[width=79mm]{images/distancesBoxplot-W}
         \caption{\label{fig:boxplotW} Difference between measured and theoretical distances to the reference point at the W--Positions.}
     \end{center}
 \end{figure}
@@ -170,7 +173,7 @@ This can be explained by the rapidly declining quality as the proximity to the b
 
 \begin{figure}[h!]
     \begin{center}
-        \includegraphics[width=79mm]{images/CScanARUS.jpg}
+        \includegraphics[width=79mm]{images/CScanARUS}
         \caption{\label{fig:resultCScan} C-Scan generated with the \textit{VIVE}--tracking system}
     \end{center}
 \end{figure}
