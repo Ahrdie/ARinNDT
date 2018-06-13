@@ -53,11 +53,16 @@ AR
 \end{figure}
 
 \section{Related Research}
-\cite{ARPat15}
-\cite{ARClean}
-\cite{schwerdtfeger_using_2008}
-\cite{fadzil_design_2015}
-\cite{walter_non-contact_2007}
+In the 2015 released patent \textit{A system and method of non-destructive inspection with a visual scanning guide} \textit{Olympus} patented the procedure of enhancing the manual inspection with AR--Glasses which help to trace a predefined inspection--plan path.
+The patent describes details like tolerated deviation from the inspection path.
+However there is no mentioning of the possibility to log specific points or the traced path on the probe \cite{ARPat15}.\\
+
+The article \textit{Non-contact tracking of phased-array probe and real-time generation of C-scans for the inspection of composite aerospace structures} describes a system, which uses a stereocamera and active markers to determine the probes position and orientation on a possibly curved surface of plane components \cite{walter_non-contact_2007}.\\
+
+A similar system, supporting the cleaning of surfaces is presented in the article \textit{Cleaning Up With Augmented Reality} by Alice Bonasio.
+It describes the advantages of using AR-technology, like a DRAW or HYBRID system (section~\ref{sec:DrawVsErase}), can have on quality assurance in the commercial cleaning industry \cite{ARClean}.\\
+
+\cite{fadzil_design_2015}\\
 
 \section{Basics of non-destructive ultrasonic testing of metal products}
 \cite{deutsch_zfp_2010}
@@ -106,7 +111,7 @@ As the specimen--geometry is already defined, only one more axis is required to 
 this is done by placing the tracked probe on the X--Axis and pressing the setup button.
 
 \subsection{Visualization of the tracking--data}
-
+\label{sec:DrawVsErase}
 To visualize the already traced path, a visual feedback is given to the inspector.
 The feedback can be implemented in multiple ways, depending on the application.
 The Path can either be drawn on the surface (DRAW), erased from a pre--colored area (ERASE), or be drawn onto a pre--colored area (HYBRID) (figure~\ref{fig:DrawVsErase}).
