@@ -65,24 +65,32 @@ AR
 \cite{olympus_Grundlagen}
 
 \section{Description of the AR--application}
+The AR--application supports manual testing visually, which is connected via an IP connection.
+Through a AR-HMD the inspector is able to see the already inspected path and identify gaps.
+Position and Rotation is send to the ultrasonic scanning computer, where the data is combined with the measurements received by the probe into a C--Scan.
 
 \section{Implementation}
+%and sends the position- and rotationdata to the ultrasonnic scanning computer
+The application was implemented in the game--engine Unity.
+Attached to the HMD is the \textit{ZEDmini}, a stereo--camera that can be used to display a camera image in the HMD and to create a depth mask.
+
 \cite{dorner_virtual_2013}
 
 \begin{figure}[h!]
     \begin{center}
         \includegraphics[width=79mm]{images/Setup.eps}
         \caption{\label{fig:Setup} Setup of the described AR-application. \textcolor{red}{Grafik muss noch übersetzt werden.}}
-        % TODO: Grafik übersetzen
+        % TODO: Grafik übersetzen, ZEDmini hinzufügen
     \end{center}
 \end{figure}
 
 \subsection{Tracking of the ultrasonic probe}
 The ultrasonic probe is tracked with the help of a attachable tracked \textit{VIVE}--Tracker.
-This Tracker is attached to a mount, in which the ultrasonic probe is fixed (figuere~\ref{}).
+This Tracker is attached to a mount, in which the ultrasonic probe is fixed (figure~\ref{fig:probemount}).
 The offset and orientation between the tracker and probe is applied in software by setting the virtual probe as a child transform of the tracker.
 
 \begin{figure}[h!]
+  \label{fig:probemount}
     \begin{center}
         \includegraphics[width=79mm]{images/probemount.jpg}
         \caption{\label{fig:probemount} Probemount, that fixes \textit{VIVE--}Tracker to ultrasonic probe.}
@@ -108,14 +116,23 @@ this is done by placing the tracked probe on the X--Axis and pressing the setup 
 
 \subsection{Continuous and singular logging of position}
 
-\section{Evaluation}
+\section{Evaluation of the \textit{VIVE}--tracker accuracy}
+The accuracy of the \textit{VIVE}--Tracker was determined in a experiment using an automated X--Y--scanner.
+Both \textit{VIVE}--Basestations were positioned on opposite corners of the scanner, though one at a greater distance (figure~\ref{fig:precisionMeasurementSetup}).
 
 \begin{figure}[h!]
     \begin{center}
         \includegraphics[width=79mm]{images/PrecisionMeasurement.jpg}
-        \caption{\label{fig:precisionMeasurement} Setup for the evaluation of the \textit{VIVE}--Precision}
+        \caption{\label{fig:precisionMeasurementSetup} Setup for the evaluation of the \textit{VIVE}--Precision. \textcolor{red}{Grafik muss noch übersetzt werden.}}
     \end{center}
 \end{figure}
+
+The tracker was screwed to the moving head of the scanner and moved in a comb structure over a surface of 400\,mm x 800\,mm.
+During the process, the position of the tracker and absolute time was continuously logged.
+In the beginning and end of each comb tine the movement was paused by 2\,s to identify the position in the log--file.\\
+
+The evaluation was done by choosing the start position as a reference and calculating the difference between the distance of the measured and the calculated position to it.
+These differences are plottet subject to the tine and type of comb.
 
 \begin{figure}[h!]
     \begin{center}
@@ -131,7 +148,18 @@ this is done by placing the tracked probe on the X--Axis and pressing the setup 
     \end{center}
 \end{figure}
 
+The results show a decline in quality as the surveypoints get closer to the closer basestation (basestation--B in figure~\ref{fig:precisionMeasurementSetup}) with an error up to 18\,mm.
+In the opposite corner the values had a quality of about 1--2\,mm.
+This can be explained by the rapidly declining quality as the proximity to the basestation is too small.
+
 \section{Conclusion}
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=79mm]{images/CScanARUS.jpg}
+        \caption{\label{fig:resultCScan} Mit Hilfe des Tracking Systems erstellter C--Scan}
+    \end{center}
+\end{figure}
 
 \VRARsetbibstyle
 \bibliography{VRARTeXample}
