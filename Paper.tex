@@ -70,12 +70,11 @@ It describes the advantages of using AR-technology, like a DRAW or HYBRID system
 \cite{olympus_Grundlagen}
 
 \section{Description of the AR--application}
-The AR--application supports manual testing visually, which is connected via an IP connection.
+The AR--application supports manual testing visually, and sends the aquired position data to the inspection software, which is connected via an IP connection.
 Through a AR-HMD the inspector is able to see the already inspected path and identify gaps.
 Position and Rotation is send to the ultrasonic scanning computer, where the data is combined with the measurements received by the probe into a C--Scan.
 
 \section{Implementation}
-%and sends the position- and rotationdata to the ultrasonnic scanning computer
 The application was implemented in the game--engine Unity.
 Attached to the HMD is the \textit{ZEDmini}, a stereo--camera that can be used to display a camera image in the HMD and to create a depth mask.
 
@@ -127,6 +126,9 @@ The main purpose of this visualization is to show possible gaps in the inspectio
 In the case of SZMF, there is no specific inspection--plan that can give a pattern to erase, therefore DRAW was implemented.
 
 \subsection{Continuous and singular logging of position}
+The application allows the continuous logging of the probes position.
+This protocol can be useful for documenting exactly which path was taken, and where exactly the imperfections were detected.
+In addition to that, it is possible to log singular spots and store them for later use.
 
 \section{Evaluation of the \textit{VIVE}--tracker accuracy}
 The accuracy of the \textit{VIVE}--Tracker was determined in a experiment using an automated X--Y--scanner.
