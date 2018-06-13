@@ -15,9 +15,9 @@
 \abstract{
 The aim of this paper is to describe the application of augmented reality technology in non–destructive testing of products of the metal–industry and a prototype created in the course of a bachelor--thesis.
 The prototype is created with hard– and software, that is usually employed in the gaming industry, and delivers positions for creating c–-scans.
-Using the ZEDmini in combination with the HTC VIVE enables realtime visualisation of the probes path in the HMD, as well as the setting of virtual markers on the specimen.
+Using a stereocamera in combination with a HMD enables realtime visualisation of the probes path in the HMD, as well as the setting of virtual markers on the specimen.
 As a part of the implementation the downhill–simplex optimization–algorithm is implemented to fit the specimen to a cloud of recorded surfacepoints.
-The accuracy is statistically tested and evaluated with the result, that the \textit{VIVE}–trackingsystem is accurate up to ca. 1–-2 millimeters in well set-up conditions.
+The accuracy is statistically tested and evaluated.
 This paper is of interest not only for research–-institutes of the metal–-industry, but also for any areas of work, in which the enhancement with augmented–reality is possible.
 }
 
@@ -105,7 +105,11 @@ In a second step the used coordinate system is picked by placing the tracked pro
 As the specimen--geometry is already defined, only one more axis is required to define the orthogonal coordinate system.
 this is done by placing the tracked probe on the X--Axis and pressing the setup button.
 
-\subsection{Vizualisation of the tracking--data}
+\subsection{Visualization of the tracking--data}
+
+To visualize the already traced path, a visual feedback is given to the inspector.
+The feedback can be implemented in multiple ways, depending on the application.
+The Path can either be drawn on the surface (DRAW), erased from a pre--colored area (ERASE), or be drawn onto a pre--colored area (HYBRID) (figure~\ref{fig:DrawVsErase}).
 
 \begin{figure}[h!]
     \begin{center}
@@ -113,6 +117,9 @@ this is done by placing the tracked probe on the X--Axis and pressing the setup 
         \caption{\label{fig:DrawVsErase} Different methods to mark covered area.}
     \end{center}
 \end{figure}
+
+The main purpose of this visualization is to show possible gaps in the inspection, or to follow a predefined inspection--path.
+In the case of SZMF, there is no specific inspection--plan that can give a pattern to erase, therefore DRAW was implemented.
 
 \subsection{Continuous and singular logging of position}
 
@@ -157,11 +164,11 @@ This can be explained by the rapidly declining quality as the proximity to the b
 \begin{figure}[h!]
     \begin{center}
         \includegraphics[width=79mm]{images/CScanARUS.jpg}
-        \caption{\label{fig:resultCScan} Mit Hilfe des Tracking Systems erstellter C--Scan}
+        \caption{\label{fig:resultCScan} C-Scan generated with the \textit{VIVE}--tracking system}
     \end{center}
 \end{figure}
 
 \VRARsetbibstyle
-\bibliography{VRARTeXample}
+\bibliography{bibliography}
 
 \end{document}
