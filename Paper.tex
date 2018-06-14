@@ -62,7 +62,7 @@ In this work only plate products have been considered, i.e. specimen with planar
 \end{figure}
 
 \section{Related Research}
-In the 2015 released patent \textit{A system and method of non-destructive inspection with a visual scanning guide} \textit{Olympus} patented the procedure of enhancing the manual inspection with AR--Glasses which help to trace a predefined inspection--plan path.
+In the 2015 released patent \textit{A system and method of non-destructive inspection with a visual scanning guide} \textit{Olympus} patented the procedure of enhancing the manual inspection with AR-Glasses which help to trace a predefined inspection-plan path.
 The patent describes details like tolerated deviation from the inspection path.
 However there is no mentioning of the possibility to log specific points or the traced path on the probe \cite{ARPat15}.\\
 
@@ -71,6 +71,7 @@ The article \textit{Non-contact tracking of phased-array probe and real-time gen
 A similar system, supporting the cleaning of surfaces is presented in the article \textit{Cleaning Up With Augmented Reality} by Alice Bonasio.
 It describes the advantages of using AR-technology, like a DRAW or HYBRID system (section~\ref{sec:DrawVsErase}), can have on quality assurance in the commercial cleaning industry \cite{ARClean}.\\
 
+The article \textit{Design, simulation, and kinematic analysis of a manipulator-based 3D position tracking system} describes a manipulator based system to track the position and orientation of B-scans in a medical application of ultrasonic inspection to create three dimensional voxels of the measurement values.
 \cite{fadzil_design_2015}\\
 
 
@@ -92,6 +93,7 @@ These local coordinates are transferred by TCP/IP to a US inspection software wr
 The US inspection software combines them with the US signals that have been received
 at the same time. The US signals can be further processed into a C-scan or other result types.
 The whole setup is illustrated in Figure \ref{fig:Setup}. \\
+
 \begin{figure}[h!]
     \begin{center}
         \includegraphics[width=158mm]{images/Setup-ARUS}
@@ -102,13 +104,14 @@ The whole setup is illustrated in Figure \ref{fig:Setup}. \\
 \subsection{Tracking of the ultrasonic probe}
 The ultrasonic probe is tracked with the help of an attachable tracked \textit{VIVE} tracker.
 This tracker is attached to a mount, in which the ultrasonic probe is fixed (Figure~\ref{fig:probemount}).
+
 The offset and orientation between the tracker and probe is applied in software by setting the virtual probe as a child transform of the tracker.
 
 \begin{figure}[h!]
   \label{fig:probemount}
     \begin{center}
         \includegraphics[width=79mm]{images/probemount}
-        \caption{\label{fig:probemount} Probemount, that fixes \textit{VIVE--}Tracker to ultrasonic probe.}
+        \caption{\label{fig:probemount} Probemount, that fixes \textit{VIVE-}Tracker to ultrasonic probe.}
     \end{center}
 \end{figure}
 
@@ -121,47 +124,51 @@ In a second step the local coordinate system is determined by defining its origi
 The Y-Axis in the fitted plane is then automatically chosen orthogonally to the X-Axis and the Z-Axis is the vector product of the X- and Y-Axis. 
 In the application, the origin and the direction of the X-Axis are chosen by pressing the setup button.
 
-\subsection{Visualization of the tracking--data}
+
+\subsection{Visualization of the tracking-data}
 \label{sec:DrawVsErase}
 To visualize the already traced path, a visual feedback is given to the operator.
 The feedback can be implemented in multiple ways, depending on the application.
-The Path can either be drawn on the surface (DRAW), erased from a pre--colored area (ERASE), or be drawn onto a pre--colored area (HYBRID) (figure~\ref{fig:DrawVsErase}).
+The path can either be drawn on the surface ({\sc Draw}), erased from a pre-colored area ({\sc Erase}), or be drawn onto a pre-colored area ({\sc Hybrid}) (Figure~\ref{fig:DrawVsErase}).
 
 \begin{figure}[h!]
     \begin{center}
         \includegraphics[width=79mm]{images/DrawVsErase}
-        \caption{\label{fig:DrawVsErase} Different methods to mark covered area.}
+        \caption{\label{fig:DrawVsErase} Different methods to mark covered area. (a) {\sc Draw} (b) {\sc Erase} (c) {\sc Hybrid}}
     \end{center}
 \end{figure}
 
-The main purpose of this visualization is to show possible gaps in the inspection, or to follow a predefined inspection--path.
-In the case of SZMF, there is no specific inspection--plan that can give a pattern to erase, therefore DRAW was implemented.
+The main purpose of this visualization is to show possible gaps in the inspection, or to follow a predefined inspection-path.
+In the case of SZMF, there is usually no specific inspection-plan that can give a pattern to erase, therefore {\sc DRAW} was implemented.
+The AR-view of the application can be seen in Figure~\ref{fig:ARView}.
+
+\begin{figure}[h!]
+    \begin{center}
+        \includegraphics[width=90mm]{images/AR-Screenshot}
+        \caption{\label{fig:ARView} AR-view of the application with green drawn path, the probe has covered.}
+    \end{center}
+\end{figure}
+
+The patches in the surface, where no color can be seen, can be explained by a lack in accuracy of the depth image, generated by the used stereocamera.
 
 \subsection{Continuous and singular logging of position}
 The application allows the continuous logging of the probes position.
 This protocol can be useful for documenting exactly which path was taken, and where exactly the imperfections were detected.
 In addition to that, it is possible to log singular spots and store them for later use.
 
-\section{Evaluation of the \textit{VIVE}--tracker accuracy}
-The accuracy of the \textit{VIVE}--Tracker was determined in a experiment using an automated X--Y--scanner.
-Both \textit{VIVE}--Basestations were positioned on opposite corners of the scanner, though one at a greater distance (figure~\ref{fig:precisionMeasurementSetup}).
+\section{Evaluation of the \textit{VIVE}-tracker accuracy}
+The accuracy of the \textit{VIVE}-Tracker was determined in a experiment using an automated X-Y-scanner.
+Both \textit{VIVE}-Basestations were positioned on opposite corners of the scanner, though one at a greater distance (figure~\ref{fig:precisionMeasurementSetup}).
 
 \begin{figure}[h!]
     \begin{center}
         \includegraphics[width=120mm]{images/PrecisionMeasurement}
-        \caption{\label{fig:precisionMeasurementSetup} Setup for the evaluation of the \textit{VIVE}--Precision.}
+        \caption{\label{fig:precisionMeasurementSetup} Setup for the evaluation of the \textit{VIVE}-Precision.}
     \end{center}
 \end{figure}
 
-The tracker was screwed to the moving head of the scanner and moved in a comb structure over a surface of 400\,mm x 800\,mm.
-During the process, the position of the tracker and absolute time was continuously logged.
-In the beginning and end of each comb tine the movement was paused by 2\,s to identify the position in the log--file.\\
-
-The evaluation was done by choosing the start position as a reference and calculating the difference between the distance of the measured and the calculated position to it.
-These differences are plottet subject to the tine and type of comb.
-
-The results show a decline in quality as the surveypoints get closer to the closer basestation (basestation--B in figure~\ref{fig:precisionMeasurementSetup}) with an error up to 18\,mm.
-In the opposite corner the values had a quality of about 1--2\,mm.
+The results show a decline in quality as the surveypoints get closer to the closer basestation (basestation-B in figure~\ref{fig:precisionMeasurementSetup}) with an error up to 18\,mm.
+In the opposite corner the values had a quality of about 1-2\,mm.
 This can be explained by the rapidly declining quality as the proximity to the basestation is too small.
 
 \section{Conclusion}
