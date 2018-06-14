@@ -39,20 +39,24 @@ AR
 \section{Introduction}
 
 In the field of nondestructive testing of steel products, the ultrasonic (US) inspection is a frequently used method to assure given safety requirements. For heavy plates and large diameter pipes the manual US testing is often applied as a follow-up inspection. Here, a US probe is moved by hand on the surface of the specimen (cf. Figure \ref{fig:manual_UT}). While moving and possibly rotating the probe the operator monitors the US signal on a screen. Usually, in case of an imperfection in the material, the US signal exhibits a higher amplitude and the position of the imperfection can be marked on the specimen.
-However, the exact position and orientation of the probe are not captured during the manual inspection. Hence, generating an objective report with for example a map of color coded US amplitudes onto probe positions (C-Scan) is not directly possible. Furthermore, there is usually no kind of tracking and visualization of those parts of the specimen surface which have already been inspected and especially no control if inspection gaps occur.
-The aim of our system is therefore to track the position and orientation of the US probe during the inspection and assign them to the corresponding US signals. This tracking is done with standard AR/VR components of an HTC Vive system. Global coordinates of the probe are converted to coordinates in a local coordinate system on the specimen and sent to a UT inspection software which can generate a C-Scan of the inspection. By a ZED mini stereo camera it is possible to view the inspection in AR and to visualize certain virtual elements as the pathes of the already inspected areas.
+However, the exact position and orientation of the probe are not captured during the manual inspection. Hence, generating an objective report with for example a map of color coded US amplitudes onto probe positions (C-Scan, cf. Figure fig:cScan) is not directly possible. Furthermore, there is usually no kind of tracking and visualization of those parts of the specimen surface which have already been inspected and especially no control if inspection gaps occur. \\
+The aim of our system is therefore to track the position and orientation of the US probe during the inspection and assign them to the corresponding US signals. This tracking is done with standard AR/VR components of an HTC Vive system. Global coordinates of the probe are converted to coordinates in a local coordinate system on the specimen and sent to a UT inspection software which can generate a C-Scan of the inspection. By a ZEDmini stereo camera it is possible to view the inspection in AR and to visualize certain virtual elements as the pathes of the already inspected areas.
+
+Erst Ebene, später Pipe
 
 \begin{figure}[h!]
     \begin{center}
-        \includegraphics[width=79mm]{images/US-workspace.jpg}
+        \includegraphics[width=0.7\textwidth]{images/US-workspace.jpg}
         \caption{\label{fig:manual_UT} Manual ultrasonic testing of steel large diameter pipes.}
     \end{center}
 \end{figure}
-
 \begin{figure}[h!]
     \begin{center}
-        \includegraphics[width=79mm]{images/CScan.jpg}
-        \caption{\label{fig:cScan} C--Scan with a resolution of 0,1\,mm}
+        \includegraphics[width=0.48\textwidth]{images/CScan_Specimen.jpg}
+				\hspace{0.5mm}
+        \includegraphics[width=0.48\textwidth]{images/CScan_Image.jpg}
+        \caption{\label{fig:cScan} A C--Scan is an image where a color-coded amplitudes extracted from the US signal 
+				are assigned to positions of the US probe. Here, a rectangular grid with a resolution of 0,1\,mm is used.}
     \end{center}
 \end{figure}
 
@@ -64,7 +68,10 @@ The aim of our system is therefore to track the position and orientation of the 
 \cite{walter_non-contact_2007}
 
 \section{Basics of non-destructive ultrasonic testing of metal products}
-\cite{deutsch_zfp_2010}
+
+US inspection:
+\cite{deutsch_zfp_2010} \\
+Phased array (skip?):
 \cite{moles_introduction_2004}
 \cite{olympus_Grundlagen}
 
