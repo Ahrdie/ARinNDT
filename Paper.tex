@@ -43,8 +43,13 @@ For heavy plates and large diameter pipes the manual US testing is often applied
 However, the exact position and orientation of the probe are not captured during the manual inspection. Hence, generating an objective report with for example a map of color coded US amplitudes onto probe positions (a so-called C-scan, cf. Figure \ref{fig:cScan}) is not directly possible.
 Furthermore, those parts of the specimen surface that have already been inspected are usually not tracked and visualized.
 There is especially no control if there is a gap in the inspection path. \\
+<<<<<<< HEAD
 The aim of our system is therefore to track the position and orientation of the US probe during the inspection and assign them to the corresponding US signals. This tracking is done with standard AR/VR components of an HTC VIVE system. The probe is attached to a VIVE tracker and the global coordinates of the probe are converted to coordinates in a local coordinate system on the specimen. These local coordinates are sent to a UT inspection software which generates a C-scan of the specimen.
 By a ZEDmini stereo camera it is possible to view the inspection in AR and to visualize certain virtual elements as for example the pathes of the already inspected areas. \\
+=======
+The aim of our system is therefore to track the position and orientation of the US probe during the inspection and assign them to the corresponding US signals. This tracking is done with standard AR/VR components of an \textit{HTC VIVE} system. The probe is attached to a \textit{VIVE} tracker and the global coordinates of the probe are converted to coordinates in a local coordinate system on the specimen. These local coordinates are sent to a UT inspection software which generates a C-scan of the specimen. 
+By a \textit{ZEDmini} stereo camera it is possible to view the inspection in AR and to visualize certain virtual elements as for example the pathes of the already inspected areas. \\
+>>>>>>> fae90f11a1e967a26d25c819f3c41e8fda7768bf
 In this work only plate products have been considered, i.e. specimen with planar surfaces. In a subsequent step it is planned to extend this work to pipes, i.e. cylinder shaped specimen.
 
 \begin{figure}[h!]
@@ -85,9 +90,15 @@ There, the data is combined with the measurements received by the probe and a C-
 generated.
 
 \section{Implementation}
+<<<<<<< HEAD
 The AR-application was implemented in the game engine Unity. The application cares about defining a local coordinate
 system on the specimen and about receiving
 global coordinates from the VIVE basestations
+=======
+The AR-application was implemented in the game engine Unity. The application cares about defining a local coordinate 
+system on the specimen and about receiving 
+global coordinates from the \textit{VIVE} basestations 
+>>>>>>> fae90f11a1e967a26d25c819f3c41e8fda7768bf
 and converting them into local coordinates.
 These local coordinates are transferred by TCP/IP to a US inspection software written by SZMF.
 The US inspection software combines them with the US signals that have been received
@@ -109,8 +120,8 @@ The offset and orientation between the tracker and probe is applied in software 
 
 \subsection{Detection of the coordinate system in worldspace}
 The local coordinate system of the surface to be measured is defined in two steps:
-first a point--cloud of the surface is created by moving the tracked probe across it.
-In the next step a plane is fitted into this point--cloud using the Downhill--Simplex optimization by Nelder and Mead. For the planar specimen considered in this work a simple plane computation based on three measured points
+first a point cloud of the surface is created by moving the tracked probe across it.
+In the next step a plane is fitted into this point cloud using the Downhill--Simplex optimization by Nelder and Mead. For the planar specimen considered in this work a simple plane computation based on three measured points
 would be possible, too. But for later applications on pipes and other geometries, such a fitting algorithm usually works more stable. \\
 In a second step the local coordinate system is determined by defining its origin and the direction of the X-Axis.
 The Y-Axis in the fitted plane is then automatically chosen orthogonally to the X-Axis and the Z-Axis is the vector product of the X- and Y-Axis.
@@ -160,8 +171,15 @@ This protocol can be useful for documenting exactly which path was taken, and wh
 In addition to that, it is possible to log singular spots and store them for later use.
 
 \section{Evaluation of the \textit{VIVE}-tracker accuracy}
-The accuracy of the \textit{VIVE}-Tracker was determined in a experiment using an automated X-Y-scanner.
-Both \textit{VIVE}-Basestations were positioned on opposite corners of the scanner, though one at a greater distance (figure~\ref{fig:precisionMeasurementSetup}).
+The accuracy of the \textit{VIVE}-Tracker was determined in an experiment using an automated X-Y-scanner, which has a nominal accuracy of about 0.01~mm.
+Both \textit{VIVE} basestations were positioned on opposite corners of the scanner, though one at a greater distance (Figure~\ref{fig:precisionMeasurementSetup}).
+
+The tracker was screwed to the moving head of the scanner and moved in a comb structure over a surface of 400\,mm x 800\,mm.
+During the process, the position of the tracker and absolute time was continuously logged.
+In the beginning and end of each comb tine the movement was paused by 2\,s to identify the corresponding positions in the log--file.
+By this it was possible to compute differences of the mean position of the
+\textit{VIVE} coordinates at these predefined positions with their nominal coordinates. 
+The whole comb measurement has in turn been repeated multiple times to compute mean values of these differences.
 
 \begin{figure}[h!]
     \begin{center}
@@ -170,9 +188,10 @@ Both \textit{VIVE}-Basestations were positioned on opposite corners of the scann
     \end{center}
 \end{figure}
 
-The results show a decline in quality as the surveypoints get closer to the closer basestation (basestation-B in figure~\ref{fig:precisionMeasurementSetup}) with an error up to 18\,mm.
-In the opposite corner the values had a quality of about 1-2\,mm.
-This can be explained by the rapidly declining quality as the proximity to the basestation is too small.
+The results show a decline in quality as these positions get closer to the closer basestation (basestation-B in Figure~\ref{fig:precisionMeasurementSetup}) with an error up to 18\,mm.
+In the opposite corner the values had an expected quality of about 1-2\,mm.
+We assume, that basestation-B was located too close to the scanner such that one corner of the comb was shadowed.
+%This can be explained by the rapidly declining quality as the proximity to the basestation is too small.
 
 \section{Conclusion}
 
