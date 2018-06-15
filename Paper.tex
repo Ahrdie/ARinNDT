@@ -43,13 +43,8 @@ For heavy plates and large diameter pipes the manual US testing is often applied
 However, the exact position and orientation of the probe are not captured during the manual inspection. Hence, generating an objective report with for example a map of color coded US amplitudes onto probe positions (a so-called C-scan, cf. Figure \ref{fig:cScan}) is not directly possible.
 Furthermore, those parts of the specimen surface that have already been inspected are usually not tracked and visualized.
 There is especially no control if there is a gap in the inspection path. \\
-<<<<<<< HEAD
-The aim of our system is therefore to track the position and orientation of the US probe during the inspection and assign them to the corresponding US signals. This tracking is done with standard AR/VR components of an HTC VIVE system. The probe is attached to a VIVE tracker and the global coordinates of the probe are converted to coordinates in a local coordinate system on the specimen. These local coordinates are sent to a UT inspection software which generates a C-scan of the specimen.
-By a ZEDmini stereo camera it is possible to view the inspection in AR and to visualize certain virtual elements as for example the pathes of the already inspected areas. \\
-=======
 The aim of our system is therefore to track the position and orientation of the US probe during the inspection and assign them to the corresponding US signals. This tracking is done with standard AR/VR components of an \textit{HTC VIVE} system. The probe is attached to a \textit{VIVE} tracker and the global coordinates of the probe are converted to coordinates in a local coordinate system on the specimen. These local coordinates are sent to a UT inspection software which generates a C-scan of the specimen. 
 By a \textit{ZEDmini} stereo camera it is possible to view the inspection in AR and to visualize certain virtual elements as for example the pathes of the already inspected areas. \\
->>>>>>> fae90f11a1e967a26d25c819f3c41e8fda7768bf
 In this work only plate products have been considered, i.e. specimen with planar surfaces. In a subsequent step it is planned to extend this work to pipes, i.e. cylinder shaped specimen.
 
 \begin{figure}[h!]
@@ -90,16 +85,7 @@ There, the data is combined with the measurements received by the probe and a C-
 generated.
 
 \section{Implementation}
-<<<<<<< HEAD
-The AR-application was implemented in the game engine Unity. The application cares about defining a local coordinate
-system on the specimen and about receiving
-global coordinates from the VIVE basestations
-=======
-The AR-application was implemented in the game engine Unity. The application cares about defining a local coordinate 
-system on the specimen and about receiving 
-global coordinates from the \textit{VIVE} basestations 
->>>>>>> fae90f11a1e967a26d25c819f3c41e8fda7768bf
-and converting them into local coordinates.
+The AR-application was implemented in the game engine Unity. The application cares about defining a local coordinate system on the specimen and about receiving global coordinates from the \textit{VIVE} basestations and converting them into local coordinates.
 These local coordinates are transferred by TCP/IP to a US inspection software written by SZMF.
 The US inspection software combines them with the US signals that have been received
 at the same time. The US signals can be further processed into a C-scan or other result types.
