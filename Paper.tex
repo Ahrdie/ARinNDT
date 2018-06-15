@@ -37,15 +37,20 @@ AR
 
 \section{Introduction}
 
-In the field of nondestructive testing of steel products, the ultrasonic (US) inspection is a frequently used method to assure given safety requirements \cite{deutsch_zfp_2010} \cite{moles_introduction_2004}
-\cite{olympus_Grundlagen}.
-For heavy plates and large diameter pipes the manual US testing is often applied as a follow-up inspection. Here, a US probe is moved by hand on the surface of the specimen (Figure \ref{fig:manual_UT}). While moving and possibly rotating the probe the operator monitors the US signal on a screen. Usually, in case of an imperfection in the material, the US signal exhibits a higher amplitude and the position of the imperfection can be marked on the specimen.
-However, the exact position and orientation of the probe are not captured during the manual inspection. Hence, generating an objective report with for example a map of color coded US amplitudes onto probe positions (a so-called C-scan, cf. Figure \ref{fig:cScan}) is not directly possible.
+In the field of nondestructive testing of steel products, the ultrasonic (US) inspection is a frequently used method to assure given safety requirements \cite{deutsch_zfp_2010} \cite{moles_introduction_2004} \cite{olympus_Grundlagen}.
+For heavy plates and large diameter pipes the manual US testing is often applied as a follow-up inspection. Here, a US probe is moved by hand on the surface of the specimen (Figure~\ref{fig:manual_UT}).
+While moving and possibly rotating the probe, the operator monitors the US signal on a screen.
+Usually, in case of an imperfection in the material, the US signal exhibits a higher amplitude and the position of the imperfection can be marked on the specimen.
+However, the exact position and orientation of the probe are not captured during the manual inspection.
+Hence, generating an objective report with for example a map of color coded US amplitudes onto probe positions (a so-called C-scan, cf. Figure~\ref{fig:cScan}) is not directly possible.
 Furthermore, those parts of the specimen surface that have already been inspected are usually not tracked and visualized.
 There is especially no control if there is a gap in the inspection path. \\
-The aim of our system is therefore to track the position and orientation of the US probe during the inspection and assign them to the corresponding US signals. This tracking is done with standard AR/VR components of an \textit{HTC VIVE} system. The probe is attached to a \textit{VIVE} tracker and the global coordinates of the probe are converted to coordinates in a local coordinate system on the specimen. These local coordinates are sent to a UT inspection software which generates a C-scan of the specimen. 
-By a \textit{ZEDmini} stereo camera it is possible to view the inspection in AR and to visualize certain virtual elements as for example the pathes of the already inspected areas. \\
-In this work only plate products have been considered, i.e. specimen with planar surfaces. In a subsequent step it is planned to extend this work to pipes, i.e. cylinder shaped specimen.
+The aim of our system is therefore to track the position and orientation of the US probe during the inspection and assign them to the corresponding US signals.
+This tracking is done with standard AR/VR components of an \textit{HTC VIVE} system.
+The probe is attached to a \textit{VIVE} tracker and the global coordinates of the probe are converted to coordinates in a local coordinate system on the specimen. These local coordinates are sent to a UT inspection software which generates a C-scan of the specimen. 
+With the help of a \textit{ZEDmini} stereo camera it is possible to view the inspection in AR and visualize certain virtual elements; for example the pathes of already inspected areas. \\
+In this work only plate products have been considered, i.e. specimen with planar surfaces.
+In a subsequent step it is planned to extend this work to pipes, i.e. cylinder shaped specimen.
 
 \begin{figure}[h!]
     \begin{center}
@@ -56,8 +61,9 @@ In this work only plate products have been considered, i.e. specimen with planar
 \begin{figure}[h!]
     \begin{center}
         \includegraphics[width=0.8\textwidth]{images/CScan}
-        \caption{\label{fig:cScan} Example of a C--Scan: A plate specimen (top) with multiple flat bottom holes of different diameters has been inspected with a 5 MHz probe which has been moved along a rectangular grid across the back side. At each grid position an amplitude value is extracted from the US signal and converted to a color. The resulting image on the grid is the so-called C-scan which can be seen at the bottom.
-				Here, a rectangular grid with a fine resolution of 0,1\,mm has been used.}
+        \caption{\label{fig:cScan} Example of a C-Scan: A plate specimen (top) with multiple flat-bottom holes of different diameters has been inspected with a 5 MHz probe which was moved along a rectangular grid across the back side.
+        At each grid position an amplitude value is extracted from the US signal and converted into a color. The resulting image on the grid is the so-called C-scan which can be seen at the bottom.
+				In this case a rectangular grid with a fine resolution of 0,1\,mm has been used.}
     \end{center}
 \end{figure}
 
@@ -68,28 +74,27 @@ However there is no mentioning of the possibility to log specific points or the 
 
 The article \textit{Non-contact tracking of phased-array probe and real-time generation of C-scans for the inspection of composite aerospace structures} describes a system, which uses a stereo camera and active markers to determine the probes position and orientation on a possibly curved surface of plane components \cite{walter_non-contact_2007}.\\
 
-A similar system, supporting the cleaning of surfaces is presented in the article \textit{Cleaning Up With Augmented Reality} by Alice Bonasio.
+A system similar to our described AR-application, supporting the cleaning of surfaces is presented in the article \textit{Cleaning Up With Augmented Reality}.
 It describes the advantages of using AR-technology, like a DRAW or HYBRID system (section~\ref{sec:DrawVsErase}), can have on quality assurance in the commercial cleaning industry \cite{ARClean}.\\
 
-The article \textit{Design, simulation, and kinematic analysis of a manipulator-based 3D position tracking system} describes a manipulator based system to track the position and orientation of B-scans in a medical application of ultrasonic inspection to create three dimensional voxels of the measurement values.
-\cite{fadzil_design_2015}\\
-
+The article \textit{Design, simulation, and kinematic analysis of a manipulator-based 3D position tracking system} describes a manipulator based system to track the position and orientation of B-scans in a medical application of ultrasonic inspection to create three dimensional voxels of the measurement values \cite{fadzil_design_2015}.
 
 \section{Description of the AR--application}
-The AR--application supports manual US testing in two ways. First,
-the operator is able to see the already inspected path and identify gaps through a AR-{\sc HMD}.
-Futhermore, it is possible to visualize the axes of the local coordinate system on the specimen as well.
-For these AR visualizations, a \textit{ZEDmini}, a stereo camera that can be used to display a camera image in the {\sc HMD} and to create a depth mask, has been attached to the {\sc HMD} \cite{dorner_virtual_2013}. \\
+The AR-application supports manual US testing in two ways.
+First, the operator is able to see the already inspected path and identify gaps through a {\sc Video-HMD}.
+Futhermore, it is possible to visualize the local coordinate systems axes on the specimen as well.
+For this AR visualization, a stereo camera is used to create a {\sc Video-HMD} and to create a depth mask \cite{dorner_virtual_2013}. \\
+
 Second, the position and rotation of the probe are sent to the ultrasonic scanning computer.
-There, the data is combined with the measurements received by the probe and a C--Scan can be
-generated.
+There, the data is combined with the measurements received by the probe and a C-scan can be generated.
 
 \section{Implementation}
-The AR-application was implemented in the game engine Unity. The application cares about defining a local coordinate system on the specimen and about receiving global coordinates from the \textit{VIVE} basestations and converting them into local coordinates.
-These local coordinates are transferred by TCP/IP to a US inspection software written by SZMF.
-The US inspection software combines them with the US signals that have been received
-at the same time. The US signals can be further processed into a C-scan or other result types.
-The whole setup is illustrated in Figure \ref{fig:Setup}. \\
+The AR-application was implemented in the game engine Unity.
+The application takes care of defining the local coordinate system of the specimen, receiving global coordinates from the \textit{VIVE} basestations and converting them into local coordinates.
+These local coordinates are transferred to a US inspection software written by SZMF via TCP/IP.
+The US inspection software combines them with the US signals that have been received at the same time.
+The US signals can be further processed into a C-scan or other result types.
+The whole setup is illustrated in Figure~\ref{fig:Setup}. \\
 
 \begin{figure}[h!]
     \begin{center}
@@ -99,19 +104,19 @@ The whole setup is illustrated in Figure \ref{fig:Setup}. \\
 \end{figure}
 
 \subsection{Tracking of the ultrasonic probe}
-The ultrasonic probe is tracked with the help of an attachable tracked \textit{VIVE} tracker.
-This tracker is attached to a mount, in which the ultrasonic probe is fixed (Figure~\ref{fig:AR-table}).
-
-The offset and orientation between the tracker and probe is applied in software by setting the virtual probe as a child transform of the tracker.
+The ultrasonic probe is tracked with the help of an attachable tracked \textit{VIVE}-tracker.
+This tracker is attached to a mount, in which the ultrasonic probe is fixed with screws (Figure~\ref{fig:AR-table}).
+The offset and orientation between the tracker and probe is applied in the \textit{Unity} engine by setting the virtual probe as a child transform of the tracker.
 
 \subsection{Detection of the coordinate system in worldspace}
 The local coordinate system of the surface to be measured is defined in two steps:
 first a point cloud of the surface is created by moving the tracked probe across it.
-In the next step a plane is fitted into this point cloud using the Downhill--Simplex optimization by Nelder and Mead. For the planar specimen considered in this work a simple plane computation based on three measured points
-would be possible, too. But for later applications on pipes and other geometries, such a fitting algorithm usually works more stable. \\
+Next, a plane is fitted into this point cloud using the Downhill-Simplex optimization by Nelder and Mead.
+For the planar specimen considered in this work a simple plane computation based on three measured points would be sufficient.
+Nevertheless, the fitting algorithm is used, as it is more flexible for future, more complex applications like pipes or other geometries.\\
 In a second step the local coordinate system is determined by defining its origin and the direction of the X-Axis.
-The Y-Axis in the fitted plane is then automatically chosen orthogonally to the X-Axis and the Z-Axis is the vector product of the X- and Y-Axis.
-In the application, the origin and the direction of the X-Axis are chosen by pressing the setup button.
+The $y$-Axis in the fitted plane is then automatically chosen orthogonally to the $x$-axis and the $z$-axis is the vector product of the $x$- and $y$-axis.
+In the application, the origin and the direction of the $x$-axis are chosen by pressing the setup button.
 
 
 \subsection{Visualization of the tracking-data}
@@ -157,14 +162,13 @@ This protocol can be useful for documenting exactly which path was taken, and wh
 In addition to that, it is possible to log singular spots and store them for later use.
 
 \section{Evaluation of the \textit{VIVE}-tracker accuracy}
-The accuracy of the \textit{VIVE}-Tracker was determined in an experiment using an automated X-Y-scanner, which has a nominal accuracy of about 0.01~mm.
+The accuracy of the \textit{VIVE}-Tracker was determined in an experiment using an automated $x$-$y$-scanner, which has a nominal accuracy of about 0.01\,mm.
 Both \textit{VIVE} basestations were positioned on opposite corners of the scanner, though one at a greater distance (Figure~\ref{fig:precisionMeasurementSetup}).
 
 The tracker was screwed to the moving head of the scanner and moved in a comb structure over a surface of 400\,mm x 800\,mm.
 During the process, the position of the tracker and absolute time was continuously logged.
-In the beginning and end of each comb tine the movement was paused by 2\,s to identify the corresponding positions in the log--file.
-By this it was possible to compute differences of the mean position of the
-\textit{VIVE} coordinates at these predefined positions with their nominal coordinates. 
+In the beginning and end of each comb tine the movement was paused by 2\,s to identify the corresponding positions in the log-file.
+By this it was possible to compute differences of the mean position of the \textit{VIVE}-tracker coordinates at these predefined positions with their nominal coordinates. 
 The whole comb measurement has in turn been repeated multiple times to compute mean values of these differences.
 
 \begin{figure}[h!]
@@ -188,11 +192,11 @@ We assume, that basestation-B was located too close to the scanner such that one
     \end{center}
 \end{figure}
 
-We have used a VR-Tracking system, which is ordinary used for {\sc hmd} applications, for tracking an ultrasonic sensor.
+We have used a VR-Tracking system, which is usually used for {\sc hmd} applications, for tracking an ultrasonic sensor.
 We showed that the accuracy for generating ultrasonic volume images is good enough (Figure~\ref{fig:resultCScan}), enabling cost effective systems.
-The {\sc hmd} system was modified with a stereo camera for building an AR video-see-through system.
+The {\sc hmd} system was modified with a stereo camera for building an AR {\sc Video-HMD} system.
 AR was used to show an operator the manual scanned surface.
-The developed registration procedure for the test object allows multiple measurement on different occasion.
+The developed registration procedure for the test object allows multiple measurements on different occasions.
 In the application field an object will be tested, modified and repaired, and finally tested again.
 The final test will be done for the same measurement area, which can be found through the registration method.
 The developed prototype is not mobile and robust enough to be used in the field, but with the advances in AR displays and mobile tracking, improved nondestructive testing procedures for advanced product quality can be developed.
