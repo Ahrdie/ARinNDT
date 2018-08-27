@@ -69,16 +69,16 @@ In a subsequent step it is planned to extend this work to pipes, i.e. cylinder s
 \end{figure}
 
 \section{Related Research}
-In the 2015 released patent \textit{A system and method of non-destructive inspection with a visual scanning guide} \textit{Olympus} patented the procedure of enhancing the manual inspection with AR-glasses which help to trace a predefined inspection-plan path.
+In a 2015 released patent \textit{Olympus} patented the procedure of enhancing the manual inspection with AR-glasses which help to trace a predefined inspection-plan path.
 The patent describes details like tolerated deviation from the inspection path.
 However there is no mentioning of the possibility to log specific points or the traced path on the probe \cite{ARPat15}.
 
-The article \textit{Non-contact tracking of phased-array probe and real-time generation of C-scans for the inspection of composite aerospace structures} describes a system, which uses a stereo camera and active markers to determine the probes position and orientation on a possibly curved surface of plane components \cite{walter_non-contact_2017}.
+\textit{Walter et al.} describe a system, which uses a stereo camera and active markers to determine the probes position and orientation on a possibly curved surface of plane components \cite{walter_non-contact_2017}.
 
-A system similar to our described AR-application, supporting the cleaning of surfaces is presented in the article \textit{Cleaning Up With Augmented Reality}.
+A system similar to our described AR-application, supporting the cleaning of surfaces is presented in an article by \textit{Bonasio}.
 It describes the advantages of using AR-technology, like a DRAW or HYBRID system (section~\ref{sec:DrawVsErase}), can have on quality assurance in the commercial cleaning industry \cite{ARClean}.
 
-The article \textit{Design, simulation, and kinematic analysis of a manipulator-based 3D position tracking system} describes a manipulator based system to track the position and orientation of B-scans in a medical application of ultrasonic inspection to create three dimensional voxels of the measurement values \cite{fadzil_design_2015}.
+\textit{Fadzil et al.} describe a manipulator based system to track the position and orientation of B-scans in a medical application of ultrasonic inspection to create three dimensional voxels of the measurement values \cite{fadzil_design_2015}.
 
 \section{Description of the AR--application}
 The AR-application supports manual US testing in two ways.
@@ -138,7 +138,7 @@ The AR-view of the application can be seen in Figure~\ref{fig:ARView}.
 \begin{figure}[h!]
     \begin{center}
         \includegraphics[width=90mm]{images/AR-Screenshot}
-        \caption{\label{fig:ARView} AR-view of the application with green drawn path, the probe has covered.}
+        \caption{\label{fig:ARView} AR-view of the application. The green marking shows the path the probe has taken.}
     \end{center}
 \end{figure}
 
@@ -195,7 +195,7 @@ However, we plan to repeat this trial with more optimal basestation positions.
 We have used a VR-Tracking system, which is usually used for {\sc hmd} applications, for tracking an ultrasonic sensor.
 We showed that the accuracy for generating ultrasonic volume images is good enough (Figure~\ref{fig:resultCScan}), enabling cost effective systems.
 The {\sc hmd} system was modified with a stereo camera for building an AR {\sc Video-HMD} system.
-AR was used to show an operator the manual scanned surface.
+AR was used to show the manual scanned surface to an operator.
 The developed registration procedure for the test object allows multiple measurements on different occasions.
 In the application field an object will be tested, modified and repaired, and finally tested again.
 The final test will be done for the same measurement area, which can be found through the registration method.
