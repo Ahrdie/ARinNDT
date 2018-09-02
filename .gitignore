@@ -24,3 +24,5 @@ paper.pdf
 *.icloud
 Formatting.tex
 *.pxm
+*.DS_Store
+*.xdv

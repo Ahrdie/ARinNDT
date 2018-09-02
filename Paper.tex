@@ -13,7 +13,7 @@
 \affiliations{
 \begin{tabular}{cc}
 \VRARafftag{\ast} Hochschule Düsseldorf & \VRARafftag{\dagger} Salzgitter Mannesmann Forschung GmbH \\
-Münsterstraße 156 & Ehinger Straße 200 \\
+Münsterstra\ss e 156 & Ehinger Stra\ss e 200 \\
 40476 Düsseldorf & 47259 Duisburg \\
 Tel.: +49 211 4351-3268 & +49 203 999-3299 \\
 robert.deppe@study.hs-duesseldorf.de & o.nemitz@du.szmf.de \\
@@ -71,22 +71,22 @@ In a subsequent step it is planned to extend this work to pipes, i.e. cylinder s
 \begin{figure}[h!]
     \begin{center}
         \includegraphics[width=0.8\textwidth]{images/CScan}
-        \caption{\label{fig:cScan} Example of a C-Scan: A plate specimen (top) with multiple flat-bottom holes of different diameters has been inspected with a 5 MHz probe which was moved along a rectangular grid across the back side.
-        At each grid position an amplitude value is extracted from the US signal and converted into a color. The resulting image on the grid is the so-called C-scan which can be seen at the bottom.
-				In this case a rectangular grid with a fine resolution of 0,1\,mm has been used.}
+        \caption{\label{fig:cScan}
+        Example of a C-Scan: A plate specimen (top) with multiple flat-bottom holes of different diameters has been inspected with a 5 MHz probe which was moved along a rectangular grid across the back side.
+        At each grid position an amplitude value is extracted from the US signal and converted into a color.
+        The resulting image on the grid is the so-called C-scan which can be seen at the bottom.
+				In this case a rectangular grid with a fine resolution of 0,1\,mm has been used.
+        }
     \end{center}
 \end{figure}
 
 \section{Related Research}
-In a 2015 released patent \textit{Olympus} patented the procedure of enhancing the manual inspection with AR-glasses which help to trace a predefined inspection-plan path.
+In a 2015 \textit{Olympus} patented the procedure of enhancing the manual inspection with AR-glasses, which help to trace a predefined inspection-plan path.
 The patent describes details like tolerated deviation from the inspection path.
-However there is no mentioning of the possibility to log specific points or the traced path on the probe \cite{ARPat15}.
-
+However, the patent mentions no logging to log specific points or the traced path on the probe \cite{ARPat15}.
 \textit{Walter et al.} describe a system, which uses a stereo camera and active markers to determine the probes position and orientation on a possibly curved surface of plane components \cite{walter_non-contact_2017}.
-
 A system similar to our described AR-application, supporting the cleaning of surfaces is presented in an article by \textit{Bonasio}.
 It describes the advantages of using AR-technology, like a DRAW or HYBRID system (section~\ref{sec:DrawVsErase}), can have on quality assurance in the commercial cleaning industry \cite{ARClean}.
-
 \textit{Fadzil et al.} describe a manipulator based system to track the position and orientation of B-scans in a medical application of ultrasonic inspection to create three dimensional voxels of the measurement values \cite{fadzil_design_2015}.
 
 \section{Description of the AR--application}
@@ -94,7 +94,6 @@ The AR-application supports manual US testing in two ways.
 First, the operator is able to see the already inspected path and identify gaps through a {\sc Video-HMD}.
 Futhermore, it is possible to visualize the local coordinate systems axes on the specimen as well.
 For this AR visualization, a stereo camera is used to create a {\sc Video-HMD} and to create a depth mask \cite{dorner_virtual_2013}.
-
 Second, the position and rotation of the probe are sent to the ultrasonic scanning computer.
 There, the data is combined with the measurements received by the probe and a C-scan can be generated.
 
@@ -107,7 +106,7 @@ The US signals can be further processed into a C-scan or other result types.
 The whole setup is illustrated in Figure~\ref{fig:Setup}.
 \begin{figure}[h!]
     \begin{center}
-        \includegraphics[width=158mm]{images/Setup-ARUS}
+        \includegraphics[width=140mm]{images/Setup-ARUS}
         \caption{\label{fig:Setup} Setup of the described AR-application.}
     \end{center}
 \end{figure}
@@ -132,26 +131,22 @@ In the application, the origin and the direction of the $x$-axis are chosen by p
 To visualize the already traced path, a visual feedback is given to the operator.
 The feedback can be implemented in multiple ways, depending on the application.
 The path can either be drawn on the surface ({\sc Draw}), erased from a pre-colored area ({\sc Erase}), or be drawn onto a pre-colored area ({\sc Hybrid}) (Figure~\ref{fig:DrawVsErase}).
-
 \begin{figure}[h!]
     \begin{center}
-        \includegraphics[width=79mm]{images/DrawVsErase}
+        \includegraphics[width=90mm]{images/DrawVsErase}
         \caption{\label{fig:DrawVsErase} Different methods to mark covered area. (a) {\sc Draw} (b) {\sc Erase} (c) {\sc Hybrid}}
     \end{center}
 \end{figure}
-
 The main purpose of this visualization is to show possible gaps in the inspection, or to follow a predefined inspection-path.
 In the case of SZMF, there is usually no specific inspection-plan that can give a pattern to erase, therefore {\sc DRAW} was implemented.
 The AR-view of the application can be seen in Figure~\ref{fig:ARView}.
-
+The patches in the surface, where no color can be seen, can be explained by a lack in accuracy of the depth image, generated by the used stereo camera.
 \begin{figure}[h!]
     \begin{center}
         \includegraphics[width=90mm]{images/AR-Screenshot}
         \caption{\label{fig:ARView} AR-view of the application. The green marking shows the path the probe has taken.}
     \end{center}
 \end{figure}
-
-The patches in the surface, where no color can be seen, can be explained by a lack in accuracy of the depth image, generated by the used stereo camera.
 
 \subsection{Continuous and singular logging of position}
 The application allows the continuous logging of the probes position.
